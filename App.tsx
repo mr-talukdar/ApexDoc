@@ -26,7 +26,12 @@ import {
   ArrowRight,
   RefreshCw,
   Menu,
-  X
+  X,
+  Map,
+  Calendar,
+  Trophy,
+  TrendingUp,
+  Flag
 } from 'lucide-react';
 import { UserStatus, MembershipStatus, UserRole, GroupJoinPolicy } from './types';
 import { canJoinGroup } from './domain/rules';
@@ -530,6 +535,57 @@ const BrainSandbox = () => {
   );
 };
 
+// --- Next Steps Component ---
+
+const FutureRoadmap = () => {
+    const steps = [
+        {
+            icon: Map,
+            title: "Ride Model",
+            description: "Defining the core data structures for Rides, Routes, and Recurring Schedules."
+        },
+        {
+            icon: Calendar,
+            title: "Ride Registration",
+            description: "Implementing RSVP flows, guest limits, waitlist handling, and cancellation policies."
+        },
+        {
+            icon: Shield,
+            title: "Ride Eligibility Rules",
+            description: "Codifying safety logic to ensure riders meet speed and skill requirements for specific groups."
+        },
+        {
+            icon: TrendingUp,
+            title: "Performance Ratings",
+            description: "Post-ride feedback mechanisms and skill level assessments."
+        },
+        {
+            icon: Trophy,
+            title: "Points System",
+            description: "Gamification engine rewarding ride leadership, consistency, and participation."
+        },
+        {
+            icon: Layout,
+            title: "Admin Dashboards",
+            description: "Comprehensive views for group managers to oversee membership health and ride analytics."
+        }
+    ];
+
+    return (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {steps.map((step, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:border-indigo-200 transition-colors">
+                    <div className="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center text-slate-700 mb-4 shadow-sm border border-slate-100">
+                        <step.icon size={24} />
+                    </div>
+                    <h3 className="font-bold text-slate-900 mb-2">{step.title}</h3>
+                    <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
+                </div>
+            ))}
+        </div>
+    );
+};
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('intro');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -550,7 +606,7 @@ export default function App() {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sections = ['intro', 'lifecycle', 'architecture', 'sandbox'];
+    const sections = ['intro', 'lifecycle', 'architecture', 'sandbox', 'roadmap'];
     
     sections.forEach(id => {
       const element = document.getElementById(id);
@@ -612,6 +668,7 @@ export default function App() {
                 <NavItem id="lifecycle" label="Lifecycle of a Request" />
                 <NavItem id="architecture" label="System Components" />
                 <NavItem id="sandbox" label="Domain Logic" />
+                <NavItem id="roadmap" label="Next Steps" />
               </nav>
 
               <div className="mt-8 pt-8 border-t border-slate-100">
@@ -682,9 +739,23 @@ export default function App() {
           <hr className="border-slate-100 my-12 md:my-16" />
 
           {/* Sandbox Section */}
-          <section id="sandbox" className="mb-20">
+          <section id="sandbox" className="mb-16 md:mb-20 scroll-mt-24">
              {/* Component handles its own headers */}
              <BrainSandbox />
+          </section>
+
+          <hr className="border-slate-100 my-12 md:my-16" />
+
+          {/* Next Steps Section (NEW) */}
+          <section id="roadmap" className="mb-20 scroll-mt-24">
+             <div className="flex items-center gap-3 mb-6">
+               <div className="p-2 bg-slate-100 rounded-lg"><Flag size={20} className="text-slate-700"/></div>
+               <h2 className="text-xl md:text-2xl font-bold text-slate-900 font-serif">Next Steps</h2>
+             </div>
+             <p className="text-slate-600 mb-8 text-sm md:text-base">
+               Having established the core governance engine, the following phases focus on ride operations and community engagement.
+             </p>
+             <FutureRoadmap />
           </section>
 
           {/* Footer */}
