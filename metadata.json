@@ -1,0 +1,5 @@
+{
+  "name": "Apex Governance",
+  "description": "A demonstration of the Apex system architecture: a decision-driven governance platform for riding groups where domain logic is strictly separated from data and API layers.",
+  "requestFramePermissions": []
+}
