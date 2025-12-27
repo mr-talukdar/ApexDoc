@@ -1,20 +1,67 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 📚 Apex System Design Documentation
 
-# Run and deploy your AI Studio app
+This repository contains the **official system design and architecture documentation** for the Apex platform.
 
-This contains everything you need to run your app locally.
+The live documentation site is deployed at:
 
-View your app in AI Studio: https://ai.studio/apps/drive/1S__RGzKgmwyQpLSe2n4jOkhuOxTfLT7C
+👉 https://apex-doc.vercel.app/
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🏍️ What is Apex?
 
+**Apex** is a governance platform for biking groups.  
+It provides structured control over membership, participation, authority, and group activity using a **domain-driven, decision-based architecture**.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+This repository does **not** contain the application code.  
+It contains the **design blueprint** that defines how Apex is built and how it evolves.
+
+---
+
+## 🧠 Why This Repository Exists
+
+This documentation serves as:
+
+- The architectural reference for all Apex development
+- The onboarding guide for contributors
+- The system contract between web, mobile, and backend teams
+- A living specification of Apex’s core principles and rules
+
+All implementation decisions in the main Apex codebase are derived from the concepts documented here.
+
+---
+
+## 🧱 Architecture Principles
+
+Apex is built on three core ideas:
+
+1. **Data stores facts**
+2. **Domain decides what is allowed**
+3. **APIs execute those decisions**
+
+This results in a system that is predictable, testable, and safe to scale.
+
+---
+
+## 📦 What’s Documented Here
+
+The documentation covers:
+
+- Overall system architecture
+- Domain model and business rules
+- Membership governance and lifecycle
+- Authority and permissions model
+- API orchestration patterns
+- Data access design
+- Future expansion plans (rides, scoring, analytics, mobile, SaaS)
+
+---
+
+## 🧪 Design Philosophy
+
+Apex is designed as a **decision-driven platform**, not a CRUD application.
+
+Every important action produces an explicit result:
+
+```json
+{ "allowed": true }
