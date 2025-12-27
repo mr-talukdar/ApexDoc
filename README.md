@@ -2,6 +2,9 @@
 
 This repository contains the **official system design and architecture documentation** for the Apex platform.
 
+The LIVE Project:
+👉 https://ape-x-iota.vercel.app/
+
 The live documentation site is deployed at:
 
 👉 https://apex-doc.vercel.app/
